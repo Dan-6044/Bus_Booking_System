@@ -1,0 +1,43 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+</head>
+<body>
+ <section id= "about">
+    <div class="container about-container my-5" id= "about">
+        <div class="row align-items-center equal-height">
+            <!-- Photo Section on the Left -->
+            <div class="col-md-6">
+                <img src="{% static 'images/about.jpg' %}" alt="About Bus Image" class="img-fluid rounded about-img">
+            </div>
+            <!-- Text Section on the Right -->
+            <div class="col-md-6">
+                <h1>About Our Bus Booking Service</h1>
+                <p class="lead">
+                    Welcome to our bus booking platform, where we provide convenient and reliable travel solutions. 
+                    We are dedicated to ensuring that your journey is as smooth and comfortable as possible. 
+                    Our modern fleet of buses is designed to offer maximum comfort, safety, and efficiency for both long and short-distance travel.
+                </p>
+                <p>
+                    Whether you're planning a trip for leisure or business, we offer a variety of services to meet your needs. 
+                    Our 24/7 customer support is here to assist you with booking and any queries you may have. 
+                    Let us take care of the travel while you sit back and enjoy the ride.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

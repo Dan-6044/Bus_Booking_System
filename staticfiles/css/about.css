@@ -1,0 +1,39 @@
+/* Ensure equal height between the image and text section */
+.equal-height {
+    display: flex;
+    align-items: stretch; /* Ensures both image and text sections are the same height */
+}
+
+/* Ensure the image fills the height of its container without distortion */
+.about-img {
+    height: 100%;
+    object-fit: cover; /* Ensures the image maintains aspect ratio and fills the height */
+}
+
+/* Container adjustments to add margin-top and control spacing */
+.about-container {
+    margin-top: 30px; /* Small margin at the top to separate from services section */
+}
+
+/* Custom styles for the heading and paragraphs */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+    color: #007bff;
+}
+
+p.lead {
+    font-size: 1.25rem;
+}
+
+p {
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Ensure the text section vertically aligns with the image */
+.col-md-6 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Vertically center text */
+}

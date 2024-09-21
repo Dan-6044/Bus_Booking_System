@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hero Section</title>
+    <link rel="stylesheet" href="{% static 'css/hero.css' %}">
+</head>
+<body>
+
+    <!-- Combined Hero and Info Section -->
+    <section class="hero-info-section">
+        <div class="hero-section">
+            <div class="hero-slides">
+                <div class="hero-slide" style="background-image: url('{% static 'images/bus1.jpg' %}')"></div>
+                <div class="hero-slide" style="background-image: url('{% static 'images/bus2.jpg' %}')"></div>
+                <div class="hero-slide" style="background-image: url('{% static 'images/bus3.jpg' %}')"></div>
+            </div>
+
+            <div class="booking-form-container">
+                <div class="booking-form">
+                    <form action=" " method="post">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <input type="text" class="form-control" placeholder="From" name="from" required>
+                            <input type="text" class="form-control" placeholder="To" name="to" required>
+                            <input type="date" class="form-control" placeholder="Date" name="date" required>
+                            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#registerModal">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Info Section (Below Hero Section) -->
+        <div class="info-section">
+            <div class="icon-container">
+                <div class="info-items">
+                    <div class="info-item">
+                        <img src="{% static 'images/icon2.png' %}" alt="Icon 1" class="info-icon">
+                        <h3>Reliable Transportation</h3>
+                        <p>We ensure on-time and safe travel across destinations.</p>
+                    </div>
+                    <div class="info-item">
+                        <img src="{% static 'images/icon3.png' %}" alt="Icon 2" class="info-icon">
+                        <h3>Comfortable Seating</h3>
+                        <p>Enjoy comfortable seats for long journeys with ample legroom.</p>
+                    </div>
+                    <div class="info-item">
+                        <img src="{% static 'images/icon4.png' %}" alt="Icon 3" class="info-icon">
+                        <h3>24/7 Customer Support</h3>
+                        <p>Our support team is available round-the-clock to assist you.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll('.hero-slide');
+        const totalSlides = slides.length;
+
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.style.opacity = i === index ? 1 : 0;
+            });
+        }
+
+        function nextSlide() {
+            slideIndex = (slideIndex + 1) % totalSlides;
+            showSlide(slideIndex);
+        }
+
+        showSlide(slideIndex);
+        setInterval(nextSlide, 5000); // Change slide every 5 seconds
+    </script>
+
+</body>
+</html>
