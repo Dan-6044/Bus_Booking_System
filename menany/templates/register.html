@@ -55,12 +55,12 @@
         var registerModal = new bootstrap.Modal(document.getElementById('registerModal'));
         var registerForm = document.getElementById('registerForm');
         var errorMessagesDiv = document.getElementById('errorMessages');
-    
+
         registerForm.addEventListener('submit', function(event) {
             event.preventDefault(); // Prevent the default form submission
-    
+
             var formData = new FormData(registerForm);
-    
+
             fetch('{% url "register" %}', {
                 method: 'POST',
                 body: formData,
@@ -79,15 +79,18 @@
                         errorMessagesDiv.innerHTML += '<p>' + errorMessage + '</p>';
                     }
                     errorMessagesDiv.classList.remove('d-none');
-                    
+
                     // Clear the form fields
                     registerForm.reset();
                 } else if (data.status === 'success') {
-                    // Hide the modal
-                    registerModal.hide();
-    
-                    // Optionally, you can add a success message or redirect
-                    alert('Registration successful');
+                    // Refresh the page
+                    location.reload();
+
+                    // Use a small timeout to allow the page to refresh before showing the login modal
+                    setTimeout(function() {
+                        var loginModal = new bootstrap.Modal(document.getElementById('loginModal'));
+                        loginModal.show();
+                    }, 1000); // Adjust the timeout duration as needed
                 }
             })
             .catch(error => console.error('Error:', error));
